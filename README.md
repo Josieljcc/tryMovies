@@ -1,70 +1,168 @@
-# Getting Started with Create React App
+# Boas-vindas ao repositório do projeto Trymovies!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<details>
+  <summary><strong>👨‍💻 O que será desenvolvido</strong></summary><br />
 
-## Available Scripts
+  Neste projeto você irá criar o Trybemovies, uma aplicação capaz de exibir filmes, criar uma lista de filmes favoritos e fazer Login . Essa aplicação será capaz de:
 
-In the project directory, you can run:
+  - Fazer login;
+  - Pesquisar por um filme;
+  - Visualizar os detalhes de um filme selecionado;
+  - Favoritar e desfavoritar os filmes;
+  - Ver a lista de filmes favoritas;
 
-### `npm start`
+</details>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<details>
+  <summary><strong>:memo: Habilidades</strong></summary><br />
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Neste projeto, verificamos se você é capaz de:
 
-### `npm test`
+- Fazer requisições e consumir dados vindos de uma `API`;
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Utilizar os ciclos de vida de um componente React;
 
-### `npm run build`
+- Utilizar a função `setState` de forma a garantir que um determinado código só é executado após o estado ser atualizado
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Utilizar o componente `BrowserRouter` corretamente;
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Criar rotas, mapeando o caminho da URL com o componente correspondente, via `Route`;
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Utilizar o `Switch` do `React Router`
 
-### `npm run eject`
+- Criar links de navegação na aplicação com o componente `Link`;
+</details>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<details>
+  <summary><strong>💻 Protótipo do projeto no Figma</strong></summary><br />
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  Você pode estar se perguntando: *"Como deixo meu projeto com um layout mais atrativo?"* 🤔
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  Para isso, disponibilizamos esse [protótipo do Figma](colocar o link do figma) para lhe ajudar !
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+</details>
 
-## Learn More
+# Requisitos
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 1. Crie as rotas necessárias para a aplicação
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Para poder fazer uso de React Router, é preciso que se instale em uma aplicação React o pacote react-router-dom:
 
-### Code Splitting
+```bash
+    npm install react-router-dom@v5
+  ```
+Você deve utilizar o `BrowserRouter` pra criar as rotas da sua aplicação e cada rota deverá renderizar um componente específico. Crie cada componente dentro da pasta `src/pages`, conforme o indicado abaixo:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<details><summary>  ⚠️ DICA</summary>
+"Route exact path="/about" component={ About } "
+</details>
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<details><summary> Rota <code>/</code></summary>
+- A rota `/` deve renderizar um componente chamado `Login`.
+</details>
 
-### Making a Progressive Web App
+<details><summary> Rota <code>/home</code></summary>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- A rota `/home` deve renderizar um componente chamado `Home`;
+</details>
 
-### Advanced Configuration
+<details><summary> Rota <code>/movies/:id</code></summary>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- A rota `/movies/:id` deve renderizar um componente chamado ` MovieDetail `.
+</details>
 
-### Deployment
+<details><summary> Rota <code>/favorites</code></summary>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- A rota `/favorites` deve renderizar um componente chamado `Favorites`.
+</details>
 
-### `npm run build` fails to minify
+## 2. Crie um formulário para identificação
+<details><summary>Dentro da page <code>Login</code>, que é renderizado na rota <code>/</code>, crie um formulário para que a pessoa usuária se identifique com um nome:</summary>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Você deve criar um campo para que a pessoa usuária insira seu nome.
+
+- Crie um botão com o texto `Entrar`.
+
+- O botão para entrar só deve estar habilitado caso o nome digitado tenha 3 ou mais caracteres.
+
+- Ao clicar no botão `Entrar`, deve salvar o nome digitado no localStorage com o nome da chave 'user'.
+
+- Após a informação ter sido salva, faça um redirect para a rota `/home`.
+</details>
+
+
+## 3. Crie um componente de cabeçalho
+
+<details><summary>Crie um componente chamado <code>Header</code>, dentro da pasta <code>src/components</code>:</summary>
+
+- Crie esse componente com a tag `header` envolvendo todo seu conteúdo.
+
+- Recupere o nome da pessoa logada e exiba essa informação na tela.
+
+- Renderize o componente de cabeçalho na página da rota `/home`;
+</details>
+
+## 4. Faça a requisição para pesquisar os filmes
+<details><summary>Dentro da page <code>Home</code>, que é renderizado na rota <code>/home</code>, crie uma função para que
+faça uma requisição de todos os filmes utilizando a função getTrandingMovies do arquivo <code>MoviesApi.js</code>:</summary>
+
+<details><summary>Crie um componente chamado <code>MovieCard</code>, dentro da pasta <code>src/components</code>:</summary>
+
+- Crie esse componente com a tag `p` que deve conter o titulo do filme.
+
+- Crie esse componente com a tag `img` que deve conter o poster do filme.
+</details>
+
+ - Renderize o componente MovieCard na página da rota `/home` passando como props o title e poster_path de cada filme;
+
+ - Exiba na tela o titulo do filme e a imagem.
+
+ - Ao clicar em um filme da rota Home,faça um redirect para a rota `/movie/:id` desse filme selecionado.
+
+ -* Enquanto aguarda exiba a mensagem `Carregando...` na tela.
+
+</details>
+
+## 5. Crie a página de detalhes do filme selecionado
+<details><summary>Dentro da page <code>MovieDetail</code>, que é renderizado na rota <code>/movie/:id</code>,exiba o detalhes somente do filme selecionado</summary>
+
+- Faça uma requisição apenas do filme selecionado utilizando a função getMovieById do arquivo <code>MoviesApi.js</code>
+
+* :bulb: Lembre-se que essa função espera receber o id do filme.
+
+* Enquanto aguarda a resposta da API exiba a mensagem `Carregando...` na tela.
+
+- Deve exibir a imagem de fundo(backdrop_path), titulo e a descrição do filme selecionado
+
+</details>
+
+## 6. Crie o formulário para pesquisar os filmes
+Este formulário deve conter um input e um botão para que seja possível pesquisar os filmes.
+<details><summary>Crie um componente chamado <code>Search</code>, dentro da pasta <code>src/components</code>:</summary>
+
+- Crie um campo para pessoa digitar o nome do filme a ser pesquisada.
+
+- Crie um botão com o texto `Procurar`.
+
+- Renderize o componente de pesquisa no componente `Home`.
+</details>
+
+## 7. Faça a requisição para pesquisar os filmes
+<details><summary>Dentro da page <code>Home</code>, que é renderizado na rota <code>/home</code>, crie uma função para que
+faça uma requisição utilizando a função getMoviesBySearch do arquivo <code>MoviesApi.js</code>:</summary>
+
+* :bulb: Lembre-se que essa função espera receber uma string com o nome do filme.
+
+* Enquanto aguarda a resposta da API, esconda o input e o botão de pesquisa e exiba a mensagem `Carregando...` na tela.
+
+* Após receber a resposta da requisição, deve renderizar no componente MovieCard somente o filme pesquisado.
+</details>
+
+## 8. Crie o mecanismo para adicionar e remover os filmes na lista de filmes favoritas
+<details><summary>Dentro do componente <code>MovieCard</code>, crie um botão para pessoa usuária favoritar seus filmes favoritos</summary>
+- Ao clicar no botão, deve salvar no localStorage o title, poster_path e o id do filme
+</details>
+
+## 9. Crie a lista de filmes favoritas
+<details><summary> Crie a lista dentro do componente <code>Favorites</code>, que é renderizado na rota <code>/favorites</code>.</summary>
