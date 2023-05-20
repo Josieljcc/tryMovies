@@ -1,15 +1,16 @@
 # Boas-vindas ao repositório do projeto Trymovies!
 
+
 <details>
   <summary><strong>👨‍💻 O que será desenvolvido</strong></summary><br />
 
   Neste projeto você irá criar o Trybemovies, uma aplicação capaz de exibir filmes, criar uma lista de filmes favoritos e fazer Login . Essa aplicação será capaz de:
-
   - Fazer login;
   - Pesquisar por um filme;
   - Visualizar os detalhes de um filme selecionado;
   - Favoritar e desfavoritar os filmes;
   - Ver a lista de filmes favoritas;
+
 
 </details>
 
@@ -47,6 +48,7 @@ Neste projeto, verificamos se você é capaz de:
 ## 1. Crie as rotas necessárias para a aplicação
 
 Para poder fazer uso de React Router, é preciso que se instale em uma aplicação React o pacote react-router-dom:
+
 
 ```bash
     npm install react-router-dom@v5
@@ -159,10 +161,12 @@ faça uma requisição utilizando a função getMoviesBySearch do arquivo <code>
 * Após receber a resposta da requisição, deve renderizar no componente MovieCard somente o filme pesquisado.
 </details>
 
+
 ## 8. Crie o mecanismo para adicionar e remover os filmes na lista de filmes favoritas
 <details><summary>Dentro do componente <code>MovieCard</code>, crie um botão para pessoa usuária favoritar seus filmes favoritos</summary>
 - Ao clicar no botão, deve salvar no localStorage o title, poster_path e o id do filme
 </details>
+
 
 ## 9. Crie a lista de filmes favoritas
 <details><summary> Crie a lista dentro do componente <code>Favorites</code>, que é renderizado na rota <code>/favorites</code>.</summary>
