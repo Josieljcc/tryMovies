@@ -1,21 +1,20 @@
 # Boas-vindas ao repositório do projeto Trymovies!
 
-
 <details>
   <summary><strong>👨‍💻 O que será desenvolvido</strong></summary><br />
 
   Neste projeto você irá criar o Trybemovies, uma aplicação capaz de exibir filmes, criar uma lista de filmes favoritos e fazer Login . Essa aplicação será capaz de:
+
   - Fazer login;
   - Pesquisar por um filme;
   - Visualizar os detalhes de um filme selecionado;
   - Favoritar e desfavoritar os filmes;
   - Ver a lista de filmes favoritas;
 
-
 </details>
 
 <details>
-  <summary><strong>:memo: Habilidades</strong></summary><br />
+  <summary><strong> Habilidades</strong></summary><br />
 
 Neste projeto, verificamos se você é capaz de:
 
@@ -34,21 +33,11 @@ Neste projeto, verificamos se você é capaz de:
 - Criar links de navegação na aplicação com o componente `Link`;
 </details>
 
-<details>
-  <summary><strong>💻 Protótipo do projeto no Figma</strong></summary><br />
-
-  Você pode estar se perguntando: *"Como deixo meu projeto com um layout mais atrativo?"* 🤔
-
-  Para isso, disponibilizamos esse [protótipo do Figma](colocar o link do figma) para lhe ajudar !
-
-</details>
-
 # Requisitos
 
 ## 1. Crie as rotas necessárias para a aplicação
 
 Para poder fazer uso de React Router, é preciso que se instale em uma aplicação React o pacote react-router-dom:
-
 
 ```bash
     npm install react-router-dom@v5
@@ -58,7 +47,6 @@ Você deve utilizar o `BrowserRouter` pra criar as rotas da sua aplicação e ca
 <details><summary>  ⚠️ DICA</summary>
 "Route exact path="/about" component={ About } "
 </details>
-
 
 <details><summary> Rota <code>/</code></summary>
 - A rota `/` deve renderizar um componente chamado `Login`.
@@ -93,7 +81,6 @@ Você deve utilizar o `BrowserRouter` pra criar as rotas da sua aplicação e ca
 - Após a informação ter sido salva, faça um redirect para a rota `/home`.
 </details>
 
-
 ## 3. Crie um componente de cabeçalho
 
 <details><summary>Crie um componente chamado <code>Header</code>, dentro da pasta <code>src/components</code>:</summary>
@@ -105,37 +92,77 @@ Você deve utilizar o `BrowserRouter` pra criar as rotas da sua aplicação e ca
 - Renderize o componente de cabeçalho na página da rota `/home`;
 </details>
 
+
+## ⚠️  Requisição a API dos filmes ⚠️ 
+<details><summary>Crie um arquivo<code>MoviesApi</code>, dentro da pasta <code>src/services</code>:</summary>
+
+- No arquivo MoviesApi.js, crie as funções que fazem requisição a API de filmes. A API themoviedb é gratuita e precisa fazer cadastro para conseguir utilizar, desta forma receberá uma key que deve ser utilizada na url. Segue algumas informações sobre a API:
+
+- documentação:
+```bash
+   https://api.themoviedb.org
+  ```
+
+- requisição para filmes mais procurados da semana:
+```bash
+   `https://api.themoviedb.org/3/trending/all/week?api_key=${apiKey}`
+  ```
+- requisição para um filme pelo id:
+```bash
+  `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`
+  ```
+- requisição para um filme buscado pelo nome:
+```bash
+  `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${search}`
+  ```
+
+</details>
+
+
 ## 4. Faça a requisição para pesquisar os filmes
-<details><summary>Dentro da page <code>Home</code>, que é renderizado na rota <code>/home</code>, crie uma função para que
-faça uma requisição de todos os filmes utilizando a função getTrandingMovies do arquivo <code>MoviesApi.js</code>:</summary>
+<details><summary>Dentro da page <code>Home</code>, crie uma função para que faça uma requisição dos filmes mais procurados da semana:</summary>
 
 <details><summary>Crie um componente chamado <code>MovieCard</code>, dentro da pasta <code>src/components</code>:</summary>
 
 - Crie esse componente com a tag `p` que deve conter o titulo do filme.
 
 - Crie esse componente com a tag `img` que deve conter o poster do filme.
+  <details><summary>  ⚠️ DICA</summary>
+  Para exibir a imagem, deve colocar desta forma na src:
+
+  ```bash
+    `https://image.tmdb.org/t/p/w500${poster_path}`
+    ```
+  </details>
+
 </details>
 
- - Renderize o componente MovieCard na página da rota `/home` passando como props o title e poster_path de cada filme;
+ - Renderize o componente MovieCard na página da rota `/home` passando as informações dos filmes como props;
 
  - Exiba na tela o titulo do filme e a imagem.
-
- - Ao clicar em um filme da rota Home,faça um redirect para a rota `/movie/:id` desse filme selecionado.
 
  -* Enquanto aguarda exiba a mensagem `Carregando...` na tela.
 
 </details>
 
 ## 5. Crie a página de detalhes do filme selecionado
-<details><summary>Dentro da page <code>MovieDetail</code>, que é renderizado na rota <code>/movie/:id</code>,exiba o detalhes somente do filme selecionado</summary>
+<details><summary>Dentro da page <code>MovieDetail</code>, exiba o detalhes somente do filme selecionado</summary>
 
-- Faça uma requisição apenas do filme selecionado utilizando a função getMovieById do arquivo <code>MoviesApi.js</code>
+ - Ao clicar em um filme da rota Home, faça um redirect para a rota `/movie/:id` desse filme selecionado.
 
-* :bulb: Lembre-se que essa função espera receber o id do filme.
+- Faça uma requisição apenas do filme selecionado
 
 * Enquanto aguarda a resposta da API exiba a mensagem `Carregando...` na tela.
 
-- Deve exibir a imagem de fundo(backdrop_path), titulo e a descrição do filme selecionado
+- Deve exibir a imagem de fundo, titulo e a descrição do filme selecionado
+  
+  <details><summary>  ⚠️ DICA</summary>
+  Para exibir a imagem, deve colocar desta forma na src:
+
+  ```bash
+    `https://image.tmdb.org/t/p/w500${backdrop_path}`
+    ```
+  </details>
 
 </details>
 
@@ -147,7 +174,7 @@ Este formulário deve conter um input e um botão para que seja possível pesqui
 
 - Crie um botão com o texto `Procurar`.
 
-- Renderize o componente de pesquisa no componente `Home`.
+- Renderize o componente de pesquisa no componente `Header`.
 </details>
 
 ## 7. Faça a requisição para pesquisar os filmes
@@ -161,12 +188,10 @@ faça uma requisição utilizando a função getMoviesBySearch do arquivo <code>
 * Após receber a resposta da requisição, deve renderizar no componente MovieCard somente o filme pesquisado.
 </details>
 
-
 ## 8. Crie o mecanismo para adicionar e remover os filmes na lista de filmes favoritas
 <details><summary>Dentro do componente <code>MovieCard</code>, crie um botão para pessoa usuária favoritar seus filmes favoritos</summary>
 - Ao clicar no botão, deve salvar no localStorage o title, poster_path e o id do filme
 </details>
-
 
 ## 9. Crie a lista de filmes favoritas
 <details><summary> Crie a lista dentro do componente <code>Favorites</code>, que é renderizado na rota <code>/favorites</code>.</summary>
