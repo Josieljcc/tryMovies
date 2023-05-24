@@ -160,7 +160,7 @@ Você deve utilizar o `BrowserRouter` pra criar as rotas da sua aplicação e ca
   Para exibir a imagem, deve colocar desta forma na src:
 
   ```bash
-    `https://image.tmdb.org/t/p/w500${backdrop_path}`
+    `https://image.tmdb.org/t/p/original/${backdrop_path}`
     ```
   </details>
 
@@ -206,6 +206,6 @@ faça uma requisição para o filme que deseja pesquisar pelo nome:</summary>
 
 - Nesta página deve ser possível desfavoritar os filmes
 
-- A lista de filmes favoritos é atualizada ao remover uma música da lista.
+- A lista de filmes favoritos é atualizada ao remover um filme da lista.
 
 </details>
