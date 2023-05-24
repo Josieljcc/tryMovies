@@ -166,11 +166,11 @@ Você deve utilizar o `BrowserRouter` pra criar as rotas da sua aplicação e ca
 
 </details>
 
-## 6. Crie o formulário para pesquisar os filmes
-Este formulário deve conter um input e um botão para que seja possível pesquisar os filmes.
+## 6. Crie o componente para pesquisar o filme desejado
+Este componente deve conter um input e um botão para que seja possível pesquisar os filmes.
 <details><summary>Crie um componente chamado <code>Search</code>, dentro da pasta <code>src/components</code>:</summary>
 
-- Crie um campo para pessoa digitar o nome do filme a ser pesquisada.
+- Crie um campo para pessoa digitar o nome do filme a ser pesquisado.
 
 - Crie um botão com o texto `Procurar`.
 
@@ -178,20 +178,34 @@ Este formulário deve conter um input e um botão para que seja possível pesqui
 </details>
 
 ## 7. Faça a requisição para pesquisar os filmes
-<details><summary>Dentro da page <code>Home</code>, que é renderizado na rota <code>/home</code>, crie uma função para que
-faça uma requisição utilizando a função getMoviesBySearch do arquivo <code>MoviesApi.js</code>:</summary>
-
-* :bulb: Lembre-se que essa função espera receber uma string com o nome do filme.
-
-* Enquanto aguarda a resposta da API, esconda o input e o botão de pesquisa e exiba a mensagem `Carregando...` na tela.
+<details><summary>Dentro da page <code>Home</code>, crie uma função para que
+faça uma requisição para o filme que deseja pesquisar pelo nome:</summary>
 
 * Após receber a resposta da requisição, deve renderizar no componente MovieCard somente o filme pesquisado.
+
+* Enquanto aguarda a resposta da API, esconda o input e o botão de pesquisa e exiba a mensagem `Carregando...` na tela.
 </details>
 
 ## 8. Crie o mecanismo para adicionar e remover os filmes na lista de filmes favoritas
-<details><summary>Dentro do componente <code>MovieCard</code>, crie um botão para pessoa usuária favoritar seus filmes favoritos</summary>
-- Ao clicar no botão, deve salvar no localStorage o title, poster_path e o id do filme
+<details><summary>Dentro do componente <code>MovieCard</code>, crie um input do tipo checkbox para marcar os filmes favoritos</summary>
+
+- Deve existir um checkbox para cada filme da lista;
+
+- Ao clicar no checkbox, deve salvar no localStorage as informações do filme;
+
 </details>
 
 ## 9. Crie a lista de filmes favoritas
-<details><summary> Crie a lista dentro do componente <code>Favorites</code>, que é renderizado na rota <code>/favorites</code>.</summary>
+<details><summary> Crie a lista dentro do componente <code>Favorites</code></summary>
+
+- Ao entrar na página, recupere a lista de filmes favoritas.
+
+- Enquanto aguarda a resposta, exiba a mensagem Carregando...
+
+- Após receber o retorno da lista de favoritas, utilize o componente MovieCard para renderizar a lista de filmes favoritos.
+
+- Nesta página deve ser possível desfavoritar os filmes
+
+- A lista de filmes favoritos é atualizada ao remover uma música da lista.
+
+</details>
